@@ -30,7 +30,8 @@ And you want to match them by there ID: You must do:
 
 Wich takes the generic form of `catmatch file1 file2 common_column_Header`
 
-To make it work you have to follow few requirements:
-*Each columns in both catalogs must have a name at the very firts row of the file
-*The header line of the catalog (containing column names) must start with '#'
-*The column you want to match must have the same name in both catalog
+To make it work you have to follow few requirements:  
+* Each columns in both catalogs must have a name at the very firts row of the file  
+* The header line of the catalog (containing column names) must start with '#'  
+* Obviously, the number of column names must match the number of columns
+* The column you want to match must have the same name in both catalog
