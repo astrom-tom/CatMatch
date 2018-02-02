@@ -1,6 +1,6 @@
 # CatMatch
 
-Cat Match is a very simple open source tool (GNU3.0) that matches 2 different catalogs with one common column. It is written in python3.0 and requires numpy and [tqdm](hhttps://github.com/tqdm/tqdm) (installable via pip).
+Cat Match is a very simple open source tool (GNU3.0) that matches 2 different catalogs with one common column. It is written in python3.0 and requires numpy and [tqdm](https://github.com/tqdm/tqdm) (installable via pip).
 
 Assuming you have two catalogs:  
 Cat1:  
