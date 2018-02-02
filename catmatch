@@ -1,0 +1,125 @@
+#!/usr/bin/python
+'''
+########################################################
+#####                                                  #
+#####                  catmatch                        #
+#####                  R.THOMAS                        #
+#####                    2018                          #
+#####                    Main                          #
+#####                                                  #
+##### Usage:  catmatch  [-h] cat1 cat2 column_name #####
+#####--------------------------------------------------#
+#####                                                  #
+########################################################
+@License: GPL - see LICENCE.txt
+'''
+
+####Public General Libraries
+import os
+import sys
+import  numpy
+from tqdm import tqdm
+
+####local imports
+import cli
+import extract
+
+
+class Filecat(object):
+    def __init__(self, cat):
+        self.cat = cat
+        ###we extract the header
+        self.headers = extract.header(cat)
+
+    def extract_column(self, col):
+        '''
+        Method that extract the column to be matched
+        Parameters:
+        -----------
+        col     str, name of the column to be matched
+
+        New_attributes:
+        ---------------
+        self.column     list, of string, to be matched
+        '''
+        ###and the column to be match
+        self.column = extract.column(col, self.headers, self.cat)
+
+        ###and read the entire catalog
+        self.readlines()
+
+    def readlines(self):
+        '''
+        Method that open the catalog and read the lines
+        '''
+        with open(self.cat, 'r') as F:
+            Fl = F.readlines()
+   
+        self.readlinescat = Fl
+        self.header_line = Fl[0][1:-1]
+
+
+def match(cat1, cat2, column):
+    '''
+    Function that crossmatch the catalog
+    '''
+    ###first we must match the headers
+    total_header = '#'+cat1.header_line+'\t'+cat2.header_line+'\n'
+
+        ###and we write to the final catalog
+    final_cat_name = 'match.txt'
+    Final_cat = open(final_cat_name, 'w')
+    Final_cat.write(total_header)
+
+    ###we start matching 
+    for i in tqdm(range(len(cat1.column))):
+        ####we look where i is in cat2
+        index_cat2 = numpy.where(cat2.column == cat1.column[i])[0]
+        if len(index_cat2) != 1:
+            print('There is not a unique entry for %s in catalog %si, please check'%(cat1.column[i],\
+                    cat2.cat))
+            continue
+
+        ####if we have one match, we must take the right 
+        line1 = cat1.readlinescat[i+1][:-1]
+        line2 = cat2.readlinescat[index_cat2[0]+1][:-1]
+        match_line = line1+'\t'+line2+'\n'
+        Final_cat.write(match_line)
+    
+    line0 = '#Match between %s and %s on column %s\n'%(cat1.cat, cat2.cat, column)
+    Final_cat.write(line0)
+    Final_cat.close()
+        
+def main():
+    '''
+    This function is the main of the catmatch.
+    '''
+    ###1- we retrive the arguments
+    args = cli.CLI().arguments
+
+
+    ###2-we create the cat objects
+    cat1 = Filecat(args.file1)
+    cat2 = Filecat(args.file2)
+
+    ###4 -check if the column name is in the two headers
+    if args.column in cat1.headers and args.column in cat2.headers:
+        print('\nWe found the column to match in both files...we start matching...\n')
+    else:
+        print('One of the catalog does not contain the column to match...quit..')
+        sys.exit()
+
+    ###5 - extract the column in both catalogs
+    cat1.extract_column(args.column)
+    cat2.extract_column(args.column)
+
+    ###6 - and we start matching
+    match(cat1, cat2, args.column) 
+
+
+
+main()
+
+
+
+
