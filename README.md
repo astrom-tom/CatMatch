@@ -1,6 +1,12 @@
 # CatMatch
 
-Cat Match is a very simple open source tool (GNU3.0) that matches 2 different catalogs with one common column. It is written in python3.6 and requires numpy and [tqdm](https://github.com/tqdm/tqdm) (installable via pip).
+
+
+Cat Match is a very simple open source tool (GNU3.0) that matches 2 different catalogs with one common column. It is written in python3.6 and requires numpy and [tqdm](https://github.com/tqdm/tqdm), and [catscii](https://github.com/astrom-tom/catscii) (installable via pip).
+
+You can install it on your python distribution with
+
+*`pip install catmatch`
 
 Assuming you have two catalogs:  
 Cat1:  
@@ -26,12 +32,12 @@ ID#5 | A5 |B5|C5|....
 
 And you want to match them by there ID: You must do:
 
-*`catmatch cat1 cat2 ID`*
+*`catmatch cat1 cat2 ID out.txt`*
 
-Wich takes the generic form of `catmatch file1 file2 common_column_Header`
+Wich takes the generic form of `catmatch file1 file2 common_column_Header outputfile_name`
 
 To make it work you have to follow few requirements:  
-* Each columns in both catalogs must have a name at the very firts row of the file  
+* Each columns in both catalogs must have a name at the very first row of the file  
 * The header line of the catalog (containing column names) must start with '#'  
 * Obviously, the number of column names must match the number of columns
 * The column you want to match must have the same name in both catalog
