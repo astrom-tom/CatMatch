@@ -1,0 +1,5 @@
+# ID	col1	col2	col3	col4	ID_1	col1_1	col2_1	col3_1	col4_1	
+AA	 1	 2	 3	 4	 AA	 a	 b	 c	 d	
+BB	 5	 6	 7	 8	 BB	 e	 f	 g	 h	
+CC	 9	 10	 11	 12	 CC	 i	 j	 k	 l	
+DD	 13	 14	 15	 16	 DD	 m	 n	 o	 p	

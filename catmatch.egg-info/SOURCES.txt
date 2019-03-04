@@ -1,6 +1,6 @@
 README.md
 setup.py
-catmatch/catmatch.py
+catmatch/__main__.py
 catmatch/cli.py
 catmatch/extract.py
 catmatch.egg-info/PKG-INFO

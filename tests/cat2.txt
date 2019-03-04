@@ -1,0 +1,5 @@
+#ID	col1	col2	col3	col4
+AA	a	b	c	d
+DD	m	n	o	p
+BB	e	f	g	h
+CC	i	j	k	l
