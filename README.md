@@ -6,7 +6,7 @@ Cat Match is a very simple open source tool (GNU3.0) that matches 2 different ca
 
 You can install it on your python distribution with
 
-*`pip install catmatch`
+`pip install catmatch`
 
 Assuming you have two catalogs:  
 Cat1:  
