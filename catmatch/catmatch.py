@@ -21,8 +21,20 @@ import  numpy
 from tqdm import tqdm
 
 ####local imports
-import cli
-import extract
+from . import cli
+from . import extract
+
+
+###metadata
+__version__ = 1.0
+__author__ = 'R. THOMAS'
+__licence__ = 'GPLv3'
+__credits__ = "Romain Thomas"
+__maintainer__ = "Romain Thomas"
+__website__ = 'https://github.com/astrom-tom/catmatch'
+__email__ = "the.spartan.proj@gmail.com"
+__status__ = "released"
+__year__ = '2018-19'
 
 
 class Filecat(object):
@@ -117,8 +129,6 @@ def main():
     match(cat1, cat2, args.column) 
 
 
-
-main()
 
 
 
