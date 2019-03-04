@@ -29,7 +29,7 @@ from . import cli
 
 
 ###metadata
-__version__ = 1.0
+__version__ = 1.1
 __author__ = 'R. THOMAS'
 __licence__ = 'GPLv3'
 __credits__ = "Romain Thomas"
@@ -44,8 +44,8 @@ class missing_in_header(Exception):
         self.error = value
 
 def custom_formatwarning(matchline, *args, **kwargs):
-    line = 'There is more than one entry for %s in the second catalog, '%matchline
-    line += 'please check because We skip this line'
+    line = '\033[93m'+'There is more than one or no entry for %s in the second catalog, '%matchline
+    line += 'please check because We skip this line'+'\033[0m'
     return line + '\n'
 
 warnings.formatwarning = custom_formatwarning
@@ -128,8 +128,10 @@ def match(cat1, cat2, column):
 
     for i in tqdm(range(len(col1))):
         #we look where i is in cat2 (col2)
-        index_cat2 = numpy.where(col2 == col1[i])[0]
+        index_cat2 = list(numpy.where(col2 == col1[i])[0])
         if len(index_cat2) > 1:
+            warnings.warn(col1[i])
+        if not index_cat2:
             warnings.warn(col1[i])
         else:
             line1 = list(cat1.get_line(column, col1[i])[0].values())
@@ -153,7 +155,7 @@ def main():
     ###3 -check if the column name is in the two headers
     if args.column in cat1.header and args.column in cat2.header:
         print('\033[1m' + \
-                'Column to match found in both files...we start matching...'+'\033[0m')
+                '[INF] Column to match found in both files...we start matching...'+'\033[0m')
     else:
         raise missing_in_header('-- %s -- not found in either or both headers'%args.column)
         

@@ -2,7 +2,6 @@ README.md
 setup.py
 catmatch/__main__.py
 catmatch/cli.py
-catmatch/extract.py
 catmatch.egg-info/PKG-INFO
 catmatch.egg-info/SOURCES.txt
 catmatch.egg-info/dependency_links.txt
