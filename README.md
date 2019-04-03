@@ -1,6 +1,6 @@
 # CatMatch
 
-
+[![DOI](https://zenodo.org/badge/120015982.svg)](https://zenodo.org/badge/latestdoi/120015982)
 
 Cat Match is a very simple open source tool (GNU3.0) that matches 2 different catalogs with one common column. It is written in python3.6 and requires numpy and [tqdm](https://github.com/tqdm/tqdm), and [catscii](https://github.com/astrom-tom/catscii) (installable via pip).
 
@@ -53,3 +53,19 @@ ID#3 | X3 |Y3|Z3|....|ID#3 | A3 |B3|C3|....
 ID#4 | X4 |Y4|Z4|....|ID#4 | A4 |B4|C4|....
 ID#5 | X5 |Y5|Z5|....|ID#5 | A5 |B5|C5|....
 
+
+Citation
+========
+
+If you are willing to cite catmatch please use:
+
+	@misc{catmatch, 
+	  author    = {Thomas ,R},
+	  title		 = {CatMatch v1.3, 10.5281/zenodo.2626564}, 
+	  version   = {1.3},
+	  publisher = {Zenodo},
+	  month     = Apr,
+	  year		= 2019,
+	  doi		= {10.5281/zenodo.2626564},
+	  url		= {https://doi.org/10.5281/zenodo.2626564}
+	}
