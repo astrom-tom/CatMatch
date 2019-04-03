@@ -7,7 +7,7 @@ File: cli.py
 This file configures the Command line interface 
 
 @author: R. THOMAS
-@year: 2018
+@year: 2019
 @place:  ESO
 @License: GPL v3.0 - see LICENCE.txt
 '''
@@ -18,7 +18,7 @@ import argparse
 class CLI:
     """
     This Class defines the arguments to be calle to use SPARTAN
-    For the help, you can use 'SPARTAN -h' or 'SPARTAN --help'
+    For the help, you can use 'catmatch -h' or 'catmatch --help'
     """
     def __init__(self,):
         """
@@ -29,9 +29,9 @@ class CLI:
 
     def args(self,):
         """
-        This function creates defines the 7 main arguments of SPARTAN using the argparse module
+        This function creates defines the 4 main arguments of Catmatch using the argparse module
         """
-        parser = argparse.ArgumentParser(description="catmatch V1.0, R. Thomas, 2018, ESO, \
+        parser = argparse.ArgumentParser(description="specstack V1.2, R. Thomas, 2018, ESO, \
                 This program comes with ABSOLUTELY NO WARRANTY; and is distributed under \
                 the GPLv3.0 Licence terms.See the version of this Licence distributed along \
                 this code for details.")
