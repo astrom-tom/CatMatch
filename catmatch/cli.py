@@ -43,7 +43,6 @@ class CLI:
         parser.add_argument('column', help="The common column to match. The word you enter here must be in the header of the column you want to match and must be in the two catalogs")
 
         parser.add_argument('outputfile', help="The name of the output file that will be created (without spaces)")
-        ##### GET the Arguments for SPARTAN startup
         self.arguments = parser.parse_args()
 
 
